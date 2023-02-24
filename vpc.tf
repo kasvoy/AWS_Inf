@@ -14,7 +14,7 @@ resource "aws_subnet" "primary_subnet" {
     name = "primary-subnet"
   }
 
-  availability_zone = "us-east-1a"
+  availability_zone = "us-east-1e"
 }
 
 resource "aws_subnet" "secondary_subnet" {
@@ -25,7 +25,7 @@ resource "aws_subnet" "secondary_subnet" {
     name = "secondary-subnet"
   }
 
-  availability_zone = "us-east-1b"
+  availability_zone = "us-east-1f"
 }
 
 resource "aws_internet_gateway" "website_gw" {

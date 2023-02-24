@@ -10,9 +10,13 @@ data "template_cloudinit_config" "user_data" {
       sudo yum install -y httpd
       sudo systemctl start httpd
       sudo systemctl enable httpd
-      echo "<h1>I love Badria, she's the cutest kitten!</h1>" | sudo tee /var/www/html/index.html
+      sudo wget https://github.com/kasvoy/AWStatic/archive/refs/heads/main.zip
+      sudo unzip main.zip
+      cd AWStatic-main
+      sudo mv index.html /var/www/html/
+      cd /var/www/html/
       sudo service httpd start
-
+      
       EOT
   }
 }
