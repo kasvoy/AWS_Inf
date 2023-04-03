@@ -1,5 +1,5 @@
 resource "aws_vpc" "website_vpc" {
-  cidr_block = "10.0.0.0/16"
+  cidr_block = var.vpc_cidr
 
   tags = {
     Name = "websiteVPC"
@@ -14,7 +14,7 @@ resource "aws_subnet" "primary_subnet" {
     name = "primary-subnet"
   }
 
-  availability_zone = "us-east-1e"
+  availability_zone = var.availability_zone_names[0]
 }
 
 resource "aws_subnet" "secondary_subnet" {
@@ -25,7 +25,7 @@ resource "aws_subnet" "secondary_subnet" {
     name = "secondary-subnet"
   }
 
-  availability_zone = "us-east-1f"
+  availability_zone = var.availability_zone_names[1]
 }
 
 resource "aws_internet_gateway" "website_gw" {
